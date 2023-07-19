@@ -1,0 +1,25 @@
+Ý tưởng đo thời gian chạy:
++ Sử dụng thư viện time.h
+
++ Khai báo biến thời gian bắt đầu - thời gian kết thúc
+//clock_t start, end;
+
++ Khai báo 1 biến double để in thời gian chạy ra màn hình
+//double time_run;
+
++ sử dụng start trước khi chạy thuật toán, và end sau khi chạy để đo
+//start = clock();
+//gọi hàm thuật toán
+//end = clock();
+
++ tính thời gian chạy:
+//time_run = (double)(end - start) / CLOCKS_PER_SEC;
+
+==========================
+Ý tưởng đo số comparison:
++ Gọi 1 biến đếm int count_comp.
++ Khi gọi hàm thuật toán thì add thêm vào 
+vd: void quickSort(int* arr, int n, int& count_comp);
++ mỗi khi xảy ra phép so sánh (cái này ở trong hàm), thì biến count_comp tăng lên 1
+
+
