@@ -15,98 +15,10 @@ struct inputData {
 	string output_para;
 };
 
-int partition(int arr[], int start, int end)
-{
-
-    int pivot = arr[start];
-
-    int count = 0;
-    for (int i = start + 1; i <= end; i++) {
-        if (arr[i] <= pivot)
-            count++;
-    }
-
-    // Giving pivot element its correct position
-    int pivotIndex = start + count;
-    swap(arr[pivotIndex], arr[start]);
-
-    // Sorting left and right parts of the pivot element
-    int i = start, j = end;
-
-    while (i < pivotIndex && j > pivotIndex) {
-
-        while (arr[i] <= pivot) {
-            i++;
-        }
-
-        while (arr[j] > pivot) {
-            j--;
-        }
-
-        if (i < pivotIndex && j > pivotIndex) {
-            swap(arr[i++], arr[j--]);
-        }
-    }
-
-    return pivotIndex;
-}
-
-void quickSort(int arr[], int start, int end)
-{
-
-    // base case
-    if (start >= end)
-        return;
-
-    // partitioning the array
-    int p = partition(arr, start, end);
-
-    // Sorting the left part
-    quickSort(arr, start, p - 1);
-
-    // Sorting the right part
-    quickSort(arr, p + 1, end);
-}
 
 int main()
 {
-	clock_t start, end;
-    double time_run;
-	inputData inputString;
-	cin >> inputString.mode >> inputString.algorithm_name >> inputString.size >> inputString.output_para;
-	if (inputString.mode == "-c")
-		return 0;
-	else
-	{
-		cout << "ALGORITHM MODE \n";
-		cout << "Algorithm: " << inputString.algorithm_name << "\n";
-		cout << "Input size: " << inputString.size << "\n";
-
-        int* arr = new int[inputString.size];
-        for (int i = 0; i < inputString.size; i++)
-        {
-            *(arr + i) = rand() % (10000 - 3 + 1) + 3;
-        }
-        start = clock();
-        cout << "Before sort: ";
-        for (int i = 0; i < inputString.size; i++)
-        {
-            cout << "[" << *(arr + i) << "] ";
-        }
-        quickSort(arr, 0, inputString.size - 1);
-        cout << "After sort: ";
-        for (int i = 0; i < inputString.size; i++)
-        {
-            cout << "[" << *(arr + i) << "] ";
-        }
-        cout << "\n";
-        end = clock();
-        time_run = (double)(end - start)/CLOCKS_PER_SEC;
-        cout << "-------------------------------------\n";
-        cout << "Running Time (if required): " << time_run << "\n";
-        cout << "Comparison (if required): \n";
-        return 0;
-	}
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
